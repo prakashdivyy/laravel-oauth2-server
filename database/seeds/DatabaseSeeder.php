@@ -14,8 +14,10 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
 
         Eloquent::unguard();
-        $this->call('OAuthClientsSeeder');
-        $this->call('OAuthUsersSeeder');
+//        $this->call('OAuthClientsSeeder');
+//        $this->call('OAuthUsersSeeder');
+        $this->call(OauthUsersTableSeeder::class);
+        $this->call(OauthClientsTableSeeder::class);
     }
 }
 
@@ -30,6 +32,8 @@ class OAuthClientsSeeder extends Seeder
             'client_secret' => "demo-client-secret",
             'redirect_uri' => "http://127.0.0.1",
         ));
+        $this->call(OauthUsersTableSeeder::class);
+        $this->call(OauthClientsTableSeeder::class);
     }
 }
 
@@ -45,5 +49,7 @@ class OAuthUsersSeeder extends Seeder
             'first_name' => "Demo",
             'last_name' => "User",
         ));
+        $this->call(OauthUsersTableSeeder::class);
+        $this->call(OauthClientsTableSeeder::class);
     }
 }
